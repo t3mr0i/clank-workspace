@@ -24,6 +24,10 @@
     "last30days-official": {
       "version": "2.9.3",
       "installedAt": 1774685141857
+    },
+    "agentmail-cli": {
+      "version": "1.0.0",
+      "installedAt": 1774694824016
     }
   }
 }
