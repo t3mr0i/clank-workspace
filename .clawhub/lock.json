@@ -20,6 +20,10 @@
     "agent-browser-clawdbot": {
       "version": "0.1.0",
       "installedAt": 1774634278384
+    },
+    "last30days-official": {
+      "version": "2.9.3",
+      "installedAt": 1774685141857
     }
   }
 }

@@ -181,7 +181,6 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 
 **When to stay quiet (HEARTBEAT_OK):**
 
-- Late night (23:00-08:00) unless urgent
 - Human is clearly busy
 - Nothing new since last check
 - You just checked &lt;30 minutes ago
