@@ -1,0 +1,27 @@
+{
+  "name": "memory",
+  "version": "1.0.0",
+  "description": "PARA-based knowledge management with atomic facts and memory decay",
+  "commands": {
+    "remember": {
+      "description": "Extract and store a fact about an entity",
+      "usage": "/memory remember <entity-type> <entity-name> <fact>"
+    },
+    "recall": {
+      "description": "Retrieve information about an entity",
+      "usage": "/memory recall <entity-name>"
+    },
+    "daily": {
+      "description": "Add entry to today's daily note",
+      "usage": "/memory daily <content>"
+    },
+    "heartbeat": {
+      "description": "Run extraction and decay processing",
+      "usage": "/memory heartbeat"
+    },
+    "search": {
+      "description": "Search across all memory layers",
+      "usage": "/memory search <query>"
+    }
+  }
+}

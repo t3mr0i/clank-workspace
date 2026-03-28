@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1774606951459
+    },
+    "obsidian-sync": {
+      "version": "1.0.0",
+      "installedAt": 1774613635343
+    },
+    "todoist": {
+      "version": "0.2.1",
+      "installedAt": 1774633927354
+    },
+    "self-improving": {
+      "version": "1.2.16",
+      "installedAt": 1774634132942
+    },
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1774634278384
+    }
+  }
+}

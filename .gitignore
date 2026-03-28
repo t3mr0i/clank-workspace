@@ -1,0 +1,29 @@
+# Secrets & Credentials
+.contact-info.md
+.secrets/
+.pending/
+
+# OpenClaw Internals
+.openclaw/credentials/
+.openclaw/logs/
+.openclaw/memory/
+.openclaw/*.json
+
+# Node.js
+node_modules/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temp
+*.tmp
+*.temp

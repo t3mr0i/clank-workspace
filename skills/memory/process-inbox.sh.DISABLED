@@ -1,0 +1,49 @@
+#\!/bin/bash
+# AI-powered Inbox Processor
+# Processes inbox items using OpenClaw agent
+
+set -euo pipefail
+
+source ~/.nvm/nvm.sh 2>/dev/null || true
+
+VAULT="${OPENCLAW_VAULT:-/home/openclaw/obsidian-vault}"
+INBOX="$VAULT/00_Inbox"
+LOGFILE="$VAULT/00_Inbox/System/processor-log.md"
+
+log() { echo "[$(date -Iseconds)] $*" | tee -a "$LOGFILE"; }
+
+mkdir -p "$(dirname "$LOGFILE")"
+
+# Find unprocessed markdown files in inbox
+INBOX_FILES=$(find "$INBOX" -name "*.md" -type f \
+    -not -path "*/System/*" \
+    -not -path "*/Tasks/*" \
+    -mmin +2 2>/dev/null | head -5)
+
+if [[ -z "$INBOX_FILES" ]]; then
+    log "No new inbox items to process"
+    exit 0
+fi
+
+FILE_LIST=""
+while read -r f; do
+    FILE_LIST="$FILE_LIST\n- $(basename "$f")"
+done <<< "$INBOX_FILES"
+
+log "Found inbox items:$FILE_LIST"
+
+# Run the agent via gateway
+log "Running AI processor..."
+openclaw agent --session-id "inbox-processor" --message "Process my Obsidian inbox now. Use the obsidian skill.
+
+Inbox files to process:$FILE_LIST
+
+For each file:
+1. Read the content with: cat ~/obsidian-vault/00_Inbox/ideas/FILENAME.md
+2. Extract any actionable tasks and append to ~/obsidian-vault/00_Inbox/Tasks/AI-todo.md
+3. Move processed file to appropriate folder (02_Projects, 04_Reference, or 05_Archive)
+4. Add [[smart links]] to related notes
+
+Start processing now." 2>&1 | tee -a "$LOGFILE"
+
+log "Processing complete"
